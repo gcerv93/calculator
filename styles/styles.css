@@ -24,3 +24,7 @@ body {
   border-radius: 5px;
   margin-bottom: 20px;
 }
+
+.row-3 {
+  display: flex;
+}
