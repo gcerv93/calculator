@@ -1,0 +1,1 @@
+I will be creating a the calculator project for The Odin Project. For this project, I will be using the knowledge I have gained throught the fundamentals course so far. Using HTML/CSS/JavaScript I hope to create a decent looking functioning calculator!
