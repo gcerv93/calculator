@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
     <title>Calculator</title>
     <link rel='stylesheet' href='styles/styles.css'>
-    <script src='scripts/script.js'></script>
+    <script src='scripts/script.js' defer></script>
   </head>
 
   <body>
@@ -12,36 +12,36 @@
       <div class='display'></div>
       <div class='numbers-box'>
         <div class='row-1'>
-          <button class='item'>7</button>
-          <button class='item'>8</button>
-          <button class='item'>9</button>
-          <button class='item'>+/-</button>
-          <button class='item'>B</button>
+          <button id='7' class='item'>7</button>
+          <button id='8' class='item'>8</button>
+          <button id='9' class='item'>9</button>
+          <button id='neg' class='item'>+/-</button>
+          <button id='del' class='item'>B</button>
         </div>
         <div class='row-2'>
-          <button class='item'>4</button>
-          <button class='item'>5</button>
-          <button class='item'>6</button>
-          <button class='item'>X</button>
-          <button class='item'>/</button>
+          <button id='4' class='item'>4</button>
+          <button id='5' class='item'>5</button>
+          <button id='6' class='item'>6</button>
+          <button id='*' class='item'>X</button>
+          <button id='/' class='item'>/</button>
         </div>
 
         <div class='row-3'>
           <div class='row-3-left'>
             <div class='row-3-top'>
-              <button class='item'>1</button>
-              <button class='item'>2</button>
-              <button class='item'>3</button>
-              <button class='item'>-</button>
+              <button id='1' class='item'>1</button>
+              <button id='2' class='item'>2</button>
+              <button id='3' class='item'>3</button>
+              <button id='-' class='item'>-</button>
             </div>
             <div class='row-3-bottom'>
-              <button class='item clear'>C</button>
-              <button class='item'>0</button>
-              <button class='item'>.</button>
-              <button class='item'>+</button>
+              <button id='C' class='item clear'>C</button>
+              <button id='0' class='item'>0</button>
+              <button id='.' class='item'>.</button>
+              <button id='+' class='item'>+</button>
             </div>
           </div>
-          <div class='row-3-right'><button class='equals'>=</button></div>
+          <div class='row-3-right'><button id='=' class='item equals'>=</button></div>
         </div>
       </div>
     </div>

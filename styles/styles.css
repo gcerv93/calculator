@@ -23,14 +23,17 @@ button {
 }
 
 .display {
-  background-color: white;
+  background-color: lightgrey;
   width: 342px;
   height: 60px;
   box-sizing: border-box;
   border-radius: 5px;
   margin-top: 5px;
   margin-bottom: 15px;
-  justify-content: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-size: 55px;
 }
 
 .numbers-box {
@@ -102,6 +105,7 @@ button {
   border-radius:7px;
   font-size: 45px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: lightgrey;
 }
 
 .equals {
