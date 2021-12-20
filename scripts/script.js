@@ -3,8 +3,7 @@ function add(n1, n2) {
 }
 
 function subtract(n1, n2) {
-  if (n1 > n2) return n1 - n2
-  if (n2 > n1) return n2 - n1
+  return n1 - n2
 }
 
 function multiply(n1, n2) {
@@ -29,7 +28,7 @@ function operate(op, n1, n2) {
 }
 
 let displayValue = ''
-let firstValue
+let firstNumber
 let operator
 
 const items = document.querySelectorAll('.item');
@@ -41,6 +40,12 @@ items.forEach((item) => item.addEventListener('click', handleButtons))
 // update display with target.id, and update the displayValue variable
 function populateDisplay(e) {
   display.textContent = displayValue;
+  // restart calculations when pressing a new number after equalsOperations
+  if (firstNumber == undefined && operator != undefined) {
+    displayValue = '';
+    display.textContent = displayValue;
+    operator = undefined;
+  }
   // do nothing if a '.' already exists in display
   if (e.target.id == '.') {
     if (display.textContent.includes('.')) {
@@ -92,12 +97,31 @@ function eraseButton() {
 }
 
 function handleOperations(e) {
+  // if there is already a firstNumber, run the equals operations
+  if (firstNumber != undefined) {
+    equalsOperations();
+  }
+  // if an operator button has already been pressed, assign the new operator and return
+  if (displayValue == '') {
+    operator = e.target.id;
+    return;
+  }
   firstNumber = parseFloat(displayValue);
   operator = e.target.id;
   displayValue = '';
 }
 
 function equalsOperations() {
+  // if either of the 2 numbers are missing, dont operate
+  if (firstNumber == undefined) return;
+  if (displayValue == '') return;
+  if (displayValue == '0' && operator == '/') {
+    display.textContent = 'naah bruh';
+    displayValue = '';
+    firstNumber = undefined;
+    return;
+  }
   display.textContent = operate(operator, firstNumber, parseFloat(displayValue));
   displayValue = display.textContent;
+  firstNumber = undefined;
 }
