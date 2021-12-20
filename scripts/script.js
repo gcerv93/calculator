@@ -29,6 +29,9 @@ function operate(op, n1, n2) {
 }
 
 let displayValue = ''
+let firstValue
+let operator
+
 const items = document.querySelectorAll('.item');
 const display = document.querySelector('.display');
 
@@ -37,6 +40,7 @@ items.forEach((item) => item.addEventListener('click', handleButtons))
 
 // update display with target.id, and update the displayValue variable
 function populateDisplay(e) {
+  display.textContent = displayValue;
   // do nothing if a '.' already exists in display
   if (e.target.id == '.') {
     if (display.textContent.includes('.')) {
@@ -53,16 +57,20 @@ function handleButtons(e) {
     case '/':
     case '+':
     case '-':
+      handleOperations(e);
+      break;
     case '=':
+      equalsOperations();
+      break;
     case 'clear':
       console.log(e.target.id);
-      break
+      break;
     case 'neg':
       signChange();
-      break
+      break;
     case 'del':
       eraseButton();
-      break
+      break;
     default:
       populateDisplay(e);
   }
@@ -80,5 +88,16 @@ function signChange() {
 function eraseButton() {
   display.textContent = display.textContent.slice(0, -1);
 
+  displayValue = display.textContent;
+}
+
+function handleOperations(e) {
+  firstNumber = parseFloat(displayValue);
+  operator = e.target.id;
+  displayValue = '';
+}
+
+function equalsOperations() {
+  display.textContent = operate(operator, firstNumber, parseFloat(displayValue));
   displayValue = display.textContent;
 }
