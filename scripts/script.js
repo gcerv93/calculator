@@ -55,6 +55,8 @@ function handleButtons(e) {
     populateDisplay(e);
   } else if (e.target.id == 'neg') {
     signChange(e);
+  } else if (e.target.id == 'del') {
+    eraseButton();
   }
 }
 
@@ -64,5 +66,11 @@ function signChange() {
   display.textContent.includes('-') ? display.textContent = displayValue.substring(1) : display.textContent = sign += display.textContent;
 
   // reassign the displayValue variable
+  displayValue = display.textContent;
+}
+
+function eraseButton() {
+  display.textContent = display.textContent.slice(0, -1);
+
   displayValue = display.textContent;
 }
