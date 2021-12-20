@@ -48,15 +48,23 @@ function populateDisplay(e) {
 }
 
 function handleButtons(e) {
-  // convert the target id to a number, then check if it is in fact a number, if it is a number, populateDisplay
-  if (Number.isInteger(parseInt(e.target.id))) {
-    populateDisplay(e);
-  } else if (e.target.id == ".") {
-    populateDisplay(e);
-  } else if (e.target.id == 'neg') {
-    signChange(e);
-  } else if (e.target.id == 'del') {
-    eraseButton();
+  switch(e.target.id) {
+    case '*':
+    case '/':
+    case '+':
+    case '-':
+    case '=':
+    case 'clear':
+      console.log(e.target.id);
+      break
+    case 'neg':
+      signChange();
+      break
+    case 'del':
+      eraseButton();
+      break
+    default:
+      populateDisplay(e);
   }
 }
 
