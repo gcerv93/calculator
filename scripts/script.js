@@ -68,7 +68,7 @@ function handleButtons(e) {
       equalsOperations();
       break;
     case 'clear':
-      console.log(e.target.id);
+      clearEverything();
       break;
     case 'neg':
       signChange();
@@ -124,4 +124,11 @@ function equalsOperations() {
   display.textContent = operate(operator, firstNumber, parseFloat(displayValue));
   displayValue = display.textContent;
   firstNumber = undefined;
+}
+
+function clearEverything() {
+  firstNumber = undefined;
+  operator = undefined;
+  displayValue = '';
+  display.textContent = displayValue;
 }
