@@ -34,9 +34,6 @@ let operator
 const items = document.querySelectorAll('.item');
 const display = document.querySelector('.text');
 
-// button event listener
-items.forEach((item) => item.addEventListener('click', handleButtons))
-
 // update display with target.id, and update the displayValue variable
 function populateDisplay(e) {
   display.textContent = displayValue;
@@ -134,3 +131,12 @@ function clearEverything() {
   displayValue = '';
   display.textContent = displayValue;
 }
+
+function hoverEffect(e) {
+  e.target.classList.toggle('hover');
+}
+
+// button event listener
+items.forEach((item) => item.addEventListener('click', handleButtons));
+items.forEach((item) => item.addEventListener('mouseover', hoverEffect));
+items.forEach((item) => item.addEventListener('mouseout', hoverEffect));
