@@ -32,7 +32,7 @@ let firstNumber
 let operator
 
 const items = document.querySelectorAll('.item');
-const display = document.querySelector('.display');
+const display = document.querySelector('.text');
 
 // button event listener
 items.forEach((item) => item.addEventListener('click', handleButtons))
@@ -77,6 +77,7 @@ function handleButtons(e) {
       eraseButton();
       break;
     default:
+      if (displayValue.length >= 11) return;
       populateDisplay(e);
   }
 }
@@ -121,7 +122,8 @@ function equalsOperations() {
     firstNumber = undefined;
     return;
   }
-  display.textContent = operate(operator, firstNumber, parseFloat(displayValue));
+  let answer = operate(operator, firstNumber, parseFloat(displayValue));
+  answer.toString().length > 11 ? display.textContent = answer.toExponential(5) : display.textContent = answer;
   displayValue = display.textContent;
   firstNumber = undefined;
 }

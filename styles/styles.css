@@ -37,6 +37,12 @@ button {
   font-size: 55px;
 }
 
+.text {
+  max-width: 11ch;
+  text-overflow: '';
+  overflow: hidden;
+}
+
 .numbers-box {
   width: 350px;
   height: 360px;
